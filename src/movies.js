@@ -47,15 +47,11 @@ function ratesAverage(movies) {
   return sum / movies.length;
 }
 
-//console.log(ratesAverage(movie));
-
 // Get the average of Drama Movies
 // genre: ["Action", "Crime", "Drama", "Thriller"],
 function dramaMoviesRate(movie) {
   let dramaMovies = movie.filter(film => {
     if (film.genre.indexOf("Drama") >= 0) {
-      //console.log(film.genre)
-      //console.log(film)
       return true;
     }
     //let dramaMoviesRate = ratesAverage(film)
@@ -66,11 +62,10 @@ function dramaMoviesRate(movie) {
   }
 
   let result = ratesAverage(dramaMovies);
-  //console.log(result)
+
   return Number(result.toFixed(2));
 }
 
-console.log(dramaMoviesRate(movie));
 // Order by time duration, in growing order
 
 function orderByDuration(movies) {
@@ -112,7 +107,6 @@ function howManyMovies(movies) {
     return undefined;
   }
 }
-console.log(howManyMovies(movie));
 // Order by title and print the first 20 titles
 
 function orderAlphabetically(movies) {
@@ -151,16 +145,13 @@ function bestYearAvg(movies) {
         years[movie.year] = [movie.rate];
       }
     }
-    console.log("years", years);
+
     let averageOfYear = {};
     for (year of Object.keys(years)) {
-      //console.log('Year',year)
       let complete = sumForAverage(years[year]);
-      console.log("Complete", complete);
       averageOfYear[year] = complete;
     }
-    
-    //console.log('averageOfYear', averageOfYear)
+
     let result = Object.entries(averageOfYear).sort(function(a, b) {
       if (a[1] > b[1]) {
         return -1;
@@ -169,12 +160,14 @@ function bestYearAvg(movies) {
       } else {
         return 0;
       }
-    }); 
-    console.log('result:',result)
-    return 'The best year was ' + result[0][0] + ' with an average rate of ' + result[0][1]
+    });
+    return (
+      "The best year was " +
+      result[0][0] +
+      " with an average rate of " +
+      result[0][1]
+    );
   } else {
     return undefined;
   }
 }
-//  console.log("averageOfYear", averageOfYear);
-//console.log("bestYearAvg", years);
