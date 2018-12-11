@@ -161,12 +161,11 @@ function bestYearAvg(movies) {
         return 0;
       }
     });
-    return (
-      "The best year was " +
+    return;
+    "The best year was " +
       result[0][0] +
       " with an average rate of " +
-      result[0][1]
-    );
+      result[0][1];
   } else {
     return undefined;
   }
